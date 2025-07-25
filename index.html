@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesamnails - Luxury Nail & Eyelash Treatments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#001F3F',
+                        gold: '#FFD700',
+                        lightpink: '#FFC0CB'
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 31, 63, 0.7) 50%, rgba(255, 215, 0, 0.1) 100%), 
+                        url('https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 192, 203, 0.2) 0%, transparent 50%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: #FFD700;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: #FFC0CB;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        .floating-element:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: #FFD700;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            background: linear-gradient(135deg, #FFD700 0%, #FFC0CB 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .btn-vip {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.3s ease;
+        }
+        .btn-vip:hover {
+            transform: perspective(1000px) rotateX(-5deg) translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
+        }
+        .btn-outline-vip {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.3s ease;
+        }
+        .btn-outline-vip:hover {
+            background: #FFD700;
+            color: #001F3F;
+            transform: perspective(1000px) rotateX(-5deg) translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .testimonial-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4);
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 15px rgba(34, 197, 94, 0);
+            }
+            100% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+        .gold-border {
+            border: 2px solid #FFD700;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #001F3F 0%, #0a3a6e 100%);
+        }
+        .vip-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #FFD700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Mobile Responsive Improvements */
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
+            }
+            
+            .floating-element:nth-child(1) {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .floating-element:nth-child(2) {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .floating-element:nth-child(3) {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            #mobile-menu {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+            
+            .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+            }
+            
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFA500;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Touch-friendly button sizes */
+        @media (max-width: 768px) {
+            .btn-vip, .btn-outline-vip {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+            
+            button, .btn {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-navy">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-navy text-gold font-bold text-2xl px-3 py-1 rounded mr-2">A</div>
+                <h1 class="text-xl md:text-2xl font-bold text-navy">Awesamnails</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-navy hover:text-gold font-medium">Home</a>
+                <a href="#services" class="text-navy hover:text-gold font-medium">Services</a>
+                <a href="#about" class="text-navy hover:text-gold font-medium">About</a>
+                <a href="#gallery" class="text-navy hover:text-gold font-medium">Gallery</a>
+                <a href="#contact" class="text-navy hover:text-gold font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center">
+                <button onclick="openBookingForm()" class="hidden sm:block bg-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Book Now</button>
+                <button onclick="toggleMobileMenu()" class="md:hidden ml-4 text-navy" id="hamburger-btn">
+                    <i class="fas fa-bars text-2xl" id="hamburger-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+            <nav class="container mx-auto px-4 py-4">
+                <ul class="space-y-4">
+                    <li><a href="#" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">Home</a></li>
+                    <li><a href="#services" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">Services</a></li>
+                    <li><a href="#about" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">About</a></li>
+                    <li><a href="gallery.html" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">Gallery</a></li>
+                    <li><a href="team.html" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">Team</a></li>
+                    <li><a href="#contact" class="block text-navy hover:text-gold font-medium py-2" onclick="closeMobileMenu()">Contact</a></li>
+                    <li><button onclick="openBookingForm(); closeMobileMenu();" class="w-full bg-gold text-navy font-bold px-4 py-3 rounded-lg hover:bg-opacity-90 transition">Book Now</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-screen flex items-center relative">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 hero-content">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6 sm:mb-8">
+                    <h1 class="hero-title font-bold mb-4 sm:mb-6 leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                        Beauty Redefined – <span class="block">Luxury That Lasts</span>
+                    </h1>
+                    <p class="hero-subtitle text-white mb-6 sm:mb-8 max-w-3xl mx-auto font-light text-base sm:text-lg md:text-xl px-4">
+                        Your Premier Destination for Luxurious Nail & Eyelash Treatments<br>
+                        <span class="text-gold font-medium">Where Elegance Meets Excellence</span>
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-8 sm:mb-12 px-4">
+                    <button onclick="openBookingForm()" class="btn-vip text-navy font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg hover:bg-opacity-90 transition transform">
+                        <i class="fas fa-calendar-alt mr-2 sm:mr-3"></i>Book VIP Appointment
+                    </button>
+                    <a href="#services" class="btn-outline-vip text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg transition transform">
+                        <i class="fas fa-sparkles mr-2 sm:mr-3"></i>Explore Services
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-2xl mx-auto px-4">
+                    <div class="glass-effect rounded-xl p-3 sm:p-4 text-center">
+                        <div class="text-gold text-xl sm:text-2xl mb-1 sm:mb-2"><i class="fas fa-star"></i></div>
+                        <div class="text-white font-bold text-lg sm:text-xl">8+</div>
+                        <div class="text-lightpink text-xs sm:text-sm">Years</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 sm:p-4 text-center">
+                        <div class="text-gold text-xl sm:text-2xl mb-1 sm:mb-2"><i class="fas fa-users"></i></div>
+                        <div class="text-white font-bold text-lg sm:text-xl">5K+</div>
+                        <div class="text-lightpink text-xs sm:text-sm">Clients</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 sm:p-4 text-center">
+                        <div class="text-gold text-xl sm:text-2xl mb-1 sm:mb-2"><i class="fas fa-crown"></i></div>
+                        <div class="text-white font-bold text-lg sm:text-xl">VIP</div>
+                        <div class="text-lightpink text-xs sm:text-sm">Treatment</div>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 sm:p-4 text-center">
+                        <div class="text-gold text-xl sm:text-2xl mb-1 sm:mb-2"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="text-white font-bold text-lg sm:text-xl">2</div>
+                        <div class="text-lightpink text-xs sm:text-sm">Locations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-xl sm:text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Premium Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Experience luxury beauty treatments tailored to your unique style</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-hand-sparkles text-gold mr-2"></i>Manicure
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Professional nail shaping, cuticle care, and polish application for perfectly groomed hands.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 1,200</span>
+                            <button onclick="openServiceBooking('Manicure')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1599948128020-9a44fe609b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-shoe-prints text-gold mr-2"></i>Pedicure
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Complete foot care treatment including exfoliation, moisturizing, and nail grooming.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 1,500</span>
+                            <button onclick="openServiceBooking('Pedicure')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-eye text-gold mr-2"></i>Eyelash Extensions
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Semi-permanent lashes that add volume and length for a stunning, natural look.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 2,500</span>
+                            <button onclick="openServiceBooking('Eyelash Extensions')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1621342800027-8ddc8f50b1e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-feather text-gold mr-2"></i>Microblading
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Semi-permanent cosmetic tattooing for fuller, more defined eyebrows.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 4,500</span>
+                            <button onclick="openServiceBooking('Microblading')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1611016186353-9af58c69a533?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-paint-brush text-gold mr-2"></i>Eyeliner
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Permanent or semi-permanent eyeliner for a defined, perfect look.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 3,000</span>
+                            <button onclick="openServiceBooking('Eyeliner')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 group">
+                    <div class="h-40 sm:h-48 bg-cover bg-center relative overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 sm:p-6">
+                        <h3 class="text-lg sm:text-xl font-bold mb-2 flex items-center">
+                            <i class="fas fa-kiss text-gold mr-2"></i>Lip Brush
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Full lip color enhancement with permanent or semi-permanent pigments.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gold font-bold text-sm sm:text-base">From Ksh 3,500</span>
+                            <button onclick="openServiceBooking('Lip Brush')" class="text-navy hover:text-gold transition-colors">
+                                <i class="fas fa-calendar-plus text-lg sm:text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 sm:gap-12">
+                <div class="lg:w-1/2 order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="bg-gold w-48 h-48 sm:w-64 sm:h-64 rounded-full absolute -top-4 -left-4 sm:-top-6 sm:-left-6 z-0 opacity-20"></div>
+                        <div class="bg-navy w-48 h-48 sm:w-64 sm:h-64 rounded-full absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 z-0 opacity-20"></div>
+                        <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sam, Owner of Awesamnails" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 order-1 lg:order-2">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">About Awesamnails</h2>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Founded by beauty enthusiast Sam, Awesamnails is dedicated to providing luxury beauty treatments in a comfortable and stylish environment. Our mission is to enhance your natural beauty with the finest techniques and premium products.</p>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">With over 8 years of experience in the beauty industry, our certified professionals are committed to delivering exceptional results that exceed your expectations. We specialize in creating personalized treatments that celebrate your unique style.</p>
+                    <div class="flex justify-center lg:justify-start items-center mb-4 sm:mb-6 gap-4 sm:gap-6">
+                        <div class="text-center">
+                            <div class="bg-navy text-gold text-lg sm:text-2xl font-bold w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center">8+</div>
+                            <p class="text-center mt-2 font-medium text-xs sm:text-sm">Years Experience</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-navy text-gold text-lg sm:text-2xl font-bold w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center">5K+</div>
+                            <p class="text-center mt-2 font-medium text-xs sm:text-sm">Happy Clients</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-navy text-gold text-lg sm:text-2xl font-bold w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center">12</div>
+                            <p class="text-center mt-2 font-medium text-xs sm:text-sm">Expert Team</p>
+                        </div>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <a href="team.html" class="bg-gold text-navy font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-opacity-90 transition inline-block">
+                            <i class="fas fa-users mr-2"></i>Meet Our Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl"><i class="fas fa-star"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">"The eyelash extensions I got at Awesamnails are absolutely stunning! They lasted for weeks and looked completely natural. The staff was professional and made me feel comfortable throughout the process."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Sarah Johnson</h4>
+                            <p class="text-gray-500 text-xs sm:text-sm">Regular Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl"><i class="fas fa-star"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">"I've been going to Awesamnails for my monthly manicures for over a year now. The attention to detail is incredible, and the results always exceed my expectations. Highly recommend their services!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Michaela Wambui</h4>
+                            <p class="text-gray-500 text-xs sm:text-sm">Kiambu Branch</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl mr-1"><i class="fas fa-star"></i></div>
+                        <div class="text-gold text-lg sm:text-xl"><i class="fas fa-star"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">"The microblading service transformed my eyebrows! I no longer need to draw them in every morning. The technician was skilled and patient, ensuring I was satisfied with the shape. Amazing results!"</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 mr-3 sm:mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-sm sm:text-base">Grace Mwangi</h4>
+                            <p class="text-gray-500 text-xs sm:text-sm">Nanyuki Branch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-12 sm:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Gallery</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Explore our stunning work and beautiful salon environment</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beautiful Manicure" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eyelash Extensions" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1621342800027-8ddc8f50b1e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Microblading Process" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1599948128020-9a44fe609b19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxurious Pedicure" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1611016186353-9af58c69a533?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Eyeliner" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lip Enhancement" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Salon Interior" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+                <div class="overflow-hidden rounded-lg sm:rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nail Art Designs" class="w-full h-32 sm:h-48 md:h-64 object-cover hover:scale-110 transition duration-500 group-hover:brightness-110">
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12">
+                <a href="gallery.html" class="gold-border text-gold font-bold px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-gold hover:text-navy transition inline-block text-sm sm:text-base">
+                    <i class="fas fa-images mr-2"></i>View Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Visit Our Salons</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Find us at our convenient locations in Kiambu and Nanyuki</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <div class="mb-6 sm:mb-10">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
+                        
+                        <div class="mb-4 sm:mb-6">
+                            <h4 class="font-bold text-base sm:text-lg mb-3">Kiambu Branch</h4>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base"><i class="fas fa-map-marker-alt text-gold mr-2"></i> Krishna Center Mezzanine Floor</p>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base"><i class="fas fa-phone text-gold mr-2"></i> 0724 060 174</p>
+                        </div>
+                        
+                        <div class="mb-4 sm:mb-6">
+                            <h4 class="font-bold text-base sm:text-lg mb-3">Nanyuki Branch</h4>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base"><i class="fas fa-map-marker-alt text-gold mr-2"></i> [Address to be provided]</p>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base"><i class="fas fa-phone text-gold mr-2"></i> 0740 679 946</p>
+                        </div>
+                        
+                        <div class="mb-4 sm:mb-6">
+                            <h4 class="font-bold text-base sm:text-lg mb-3">General Inquiries</h4>
+                            <p class="text-gray-600 mb-2 text-sm sm:text-base"><i class="fas fa-envelope text-gold mr-2"></i> awsamnails2020@gmail.com</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-base sm:text-lg mb-3">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition">
+                                    <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+                                </a>
+                                <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition">
+                                    <i class="fab fa-instagram text-sm sm:text-base"></i>
+                                </a>
+                                <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-navy flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition">
+                                    <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4">Get Updates & Special Offers</h3>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Subscribe to receive updates on special offers and beauty tips</p>
+                        <form onsubmit="subscribeNewsletter(event)" class="flex flex-col sm:flex-row gap-2 sm:gap-0">
+                            <input type="email" id="newsletter-email" placeholder="Your email address" required class="flex-grow px-3 sm:px-4 py-2 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            <button type="submit" class="bg-gold text-navy font-bold px-4 sm:px-6 py-2 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-opacity-90 transition text-sm sm:text-base">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div>
+                    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-md h-full">
+                        <h3 class="text-lg sm:text-xl font-bold mb-4">Find Our Locations</h3>
+                        
+                        <!-- Kiambu Branch Map -->
+                        <div class="mb-4 sm:mb-6">
+                            <h4 class="font-semibold mb-2 text-navy text-sm sm:text-base">Kiambu Branch - Krishna Center</h4>
+                            <div class="bg-gray-100 rounded-lg overflow-hidden mb-2">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7639!2d36.8219!3d-1.1719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTAnMTkuMCJTIDM2wrA0OSczMC42IkU!5e0!3m2!1sen!2ske!4v1635000000000!5m2!1sen!2ske"
+                                    width="100%" 
+                                    height="150" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <button onclick="openDirections('Kiambu')" class="gold-border text-gold font-bold px-3 sm:px-4 py-2 rounded-lg hover:bg-gold hover:text-navy transition w-full mb-3 sm:mb-4 text-xs sm:text-sm">
+                                <i class="fas fa-directions mr-2"></i>Get Directions to Kiambu
+                            </button>
+                        </div>
+                        
+                        <!-- Nanyuki Branch Map -->
+                        <div>
+                            <h4 class="font-semibold mb-2 text-navy text-sm sm:text-base">Nanyuki Branch</h4>
+                            <div class="bg-gray-100 rounded-lg overflow-hidden mb-2">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.0!2d37.0739!3d-0.0174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787a0a0a0a0a0a0%3A0x0!2sNanyuki%2C%20Kenya!5e0!3m2!1sen!2ske!4v1635000000000!5m2!1sen!2ske"
+                                    width="100%" 
+                                    height="150" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <button onclick="openDirections('Nanyuki')" class="gold-border text-gold font-bold px-3 sm:px-4 py-2 rounded-lg hover:bg-gold hover:text-navy transition w-full text-xs sm:text-sm">
+                                <i class="fas fa-directions mr-2"></i>Get Directions to Nanyuki
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="py-12 sm:py-16 bg-navy">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Share Your Experience</h2>
+                    <p class="text-lightpink text-base sm:text-xl max-w-2xl mx-auto">We value your feedback! Let us know how we can continue to improve and serve you better.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                    <!-- Feedback Form -->
+                    <div class="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy mb-4 sm:mb-6">Send Us Your Feedback</h3>
+                        <form onsubmit="submitFeedback(event)">
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+                                <input type="text" id="feedback-name" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                                <input type="email" id="feedback-email" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Service Experience</label>
+                                <select id="feedback-service" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                                    <option value="">Select the service you experienced</option>
+                                    <option value="Manicure">Manicure</option>
+                                    <option value="Pedicure">Pedicure</option>
+                                    <option value="Eyelash Extensions">Eyelash Extensions</option>
+                                    <option value="Microblading">Microblading</option>
+                                    <option value="Eyeliner">Eyeliner</option>
+                                    <option value="Lip Brush">Lip Brush</option>
+                                    <option value="Multiple Services">Multiple Services</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Rating</label>
+                                <div class="flex space-x-1 sm:space-x-2" id="rating-stars">
+                                    <button type="button" onclick="setRating(1)" class="star text-xl sm:text-2xl text-gray-300 hover:text-gold transition">★</button>
+                                    <button type="button" onclick="setRating(2)" class="star text-xl sm:text-2xl text-gray-300 hover:text-gold transition">★</button>
+                                    <button type="button" onclick="setRating(3)" class="star text-xl sm:text-2xl text-gray-300 hover:text-gold transition">★</button>
+                                    <button type="button" onclick="setRating(4)" class="star text-xl sm:text-2xl text-gray-300 hover:text-gold transition">★</button>
+                                    <button type="button" onclick="setRating(5)" class="star text-xl sm:text-2xl text-gray-300 hover:text-gold transition">★</button>
+                                </div>
+                                <input type="hidden" id="feedback-rating" required>
+                            </div>
+                            
+                            <div class="mb-4 sm:mb-6">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Your Feedback</label>
+                                <textarea id="feedback-message" rows="4" sm:rows="5" required class="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base" placeholder="Tell us about your experience, suggestions, or any concerns..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-gold text-navy font-bold py-2 sm:py-3 rounded-lg hover:bg-opacity-90 transition text-base sm:text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Feedback
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Feedback Info -->
+                    <div class="text-white">
+                        <div class="mb-6 sm:mb-8">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4">Why Your Feedback Matters</h3>
+                            <div class="space-y-3 sm:space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-gold text-navy w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                                        <i class="fas fa-heart text-xs sm:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Improve Our Services</h4>
+                                        <p class="text-lightpink text-xs sm:text-sm">Your insights help us enhance our treatments and customer experience.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-gold text-navy w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                                        <i class="fas fa-users text-xs sm:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Help Others Choose</h4>
+                                        <p class="text-lightpink text-xs sm:text-sm">Positive reviews help other clients discover our amazing services.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="bg-gold text-navy w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center mr-3 sm:mr-4 mt-1 flex-shrink-0">
+                                        <i class="fas fa-star text-xs sm:text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold mb-1 sm:mb-2 text-sm sm:text-base">Recognize Our Team</h4>
+                                        <p class="text-lightpink text-xs sm:text-sm">Let us know which team members provided exceptional service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white bg-opacity-10 rounded-xl p-4 sm:p-6 backdrop-filter backdrop-blur-lg">
+                            <h4 class="text-lg sm:text-xl font-bold mb-3">Quick Feedback Options</h4>
+                            <div class="space-y-2 sm:space-y-3">
+                                <a href="https://www.google.com/search?q=Awesamnails+Krishna+Center+Kiambu" target="_blank" class="flex items-center text-lightpink hover:text-gold transition text-sm sm:text-base">
+                                    <i class="fab fa-google mr-2 sm:mr-3 text-base sm:text-lg"></i>
+                                    Leave a Google Review
+                                </a>
+                                <a href="#" class="flex items-center text-lightpink hover:text-gold transition text-sm sm:text-base">
+                                    <i class="fab fa-facebook mr-2 sm:mr-3 text-base sm:text-lg"></i>
+                                    Review us on Facebook
+                                </a>
+                                <a href="https://wa.me/254740679946?text=Hi! I'd like to share feedback about my recent visit to Awesamnails." class="flex items-center text-lightpink hover:text-gold transition text-sm sm:text-base">
+                                    <i class="fab fa-whatsapp mr-2 sm:mr-3 text-base sm:text-lg"></i>
+                                    Send WhatsApp Message
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="gold-gradient text-white pt-12 sm:pt-16 pb-6 sm:pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                <div class="col-span-1 sm:col-span-2 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white text-navy font-bold text-lg sm:text-xl px-2 py-1 rounded mr-2">A</div>
+                        <h3 class="text-lg sm:text-xl font-bold">Awesamnails</h3>
+                    </div>
+                    <p class="text-lightpink mb-4 text-sm sm:text-base">Your destination for luxurious nail and eyelash treatments in Kenya.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-lightpink hover:text-gold text-lg sm:text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-lightpink hover:text-gold text-lg sm:text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-lightpink hover:text-gold text-lg sm:text-xl"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h4>
+                    <ul class="space-y-1 sm:space-y-2">
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Home</a></li>
+                        <li><a href="#services" class="text-lightpink hover:text-gold text-sm sm:text-base">Services</a></li>
+                        <li><a href="#about" class="text-lightpink hover:text-gold text-sm sm:text-base">About Us</a></li>
+                        <li><a href="#gallery" class="text-lightpink hover:text-gold text-sm sm:text-base">Gallery</a></li>
+                        <li><a href="#contact" class="text-lightpink hover:text-gold text-sm sm:text-base">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Services</h4>
+                    <ul class="space-y-1 sm:space-y-2">
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Manicure</a></li>
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Pedicure</a></li>
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Eyelash Extensions</a></li>
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Microblading</a></li>
+                        <li><a href="#" class="text-lightpink hover:text-gold text-sm sm:text-base">Eyeliner</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contact</h4>
+                    <ul class="space-y-1 sm:space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mt-1 mr-2 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">Kiambu Branch: Krishna Center Mezzanine Floor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mt-1 mr-2 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">Nanyuki Branch: [Address to be provided]</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-gold mr-2 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">Kiambu: 0724 060 174</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-gold mr-2 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">Nanyuki: 0740 679 946</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gold mr-2 text-xs sm:text-sm"></i>
+                            <span class="text-xs sm:text-sm">awsamnails2020@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gold pt-6 sm:pt-8 text-center text-lightpink">
+                <p class="text-xs sm:text-sm">&copy; 2023 Awesamnails. All rights reserved. | Designed with <i class="fas fa-heart text-gold"></i> for beauty</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254740679946" target="_blank" class="floating-btn bg-green-500 text-white w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-lg">
+        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
+    </a>
+
+    <!-- Booking Button for Mobile -->
+    <div class="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 md:hidden">
+        <button onclick="openBookingForm()" class="bg-gold text-navy font-bold px-3 sm:px-4 py-2 rounded-lg shadow-lg flex items-center text-sm sm:text-base">
+            <i class="fas fa-calendar-alt mr-1 sm:mr-2"></i> Book Now
+        </button>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-xl max-w-md w-full max-h-screen overflow-y-auto">
+            <div class="p-4 sm:p-6">
+                <div class="flex justify-between items-center mb-4 sm:mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-navy">Book Your Appointment</h2>
+                    <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700 text-xl sm:text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <form onsubmit="submitBooking(event)">
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                        <input type="text" id="booking-name" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
+                        <input type="tel" id="booking-phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="booking-email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Service</label>
+                        <select id="booking-service" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            <option value="">Select a service</option>
+                            <option value="Manicure">Manicure - From Ksh 1,200</option>
+                            <option value="Pedicure">Pedicure - From Ksh 1,500</option>
+                            <option value="Eyelash Extensions">Eyelash Extensions - From Ksh 2,500</option>
+                            <option value="Microblading">Microblading - From Ksh 4,500</option>
+                            <option value="Eyeliner">Eyeliner - From Ksh 3,000</option>
+                            <option value="Lip Brush">Lip Brush - From Ksh 3,500</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Preferred Location</label>
+                        <select id="booking-location" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            <option value="">Select location</option>
+                            <option value="Kiambu Branch">Kiambu Branch - Krishna Center</option>
+                            <option value="Nanyuki Branch">Nanyuki Branch</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Preferred Date</label>
+                        <input type="date" id="booking-date" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                    </div>
+                    
+                    <div class="mb-3 sm:mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Preferred Time</label>
+                        <select id="booking-time" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base">
+                            <option value="">Select time</option>
+                            <option value="9:00 AM">9:00 AM</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="1:00 PM">1:00 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Additional Notes (Optional)</label>
+                        <textarea id="booking-notes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold text-sm sm:text-base" placeholder="Any special requests or notes..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gold text-navy font-bold py-2 sm:py-3 rounded-lg hover:bg-opacity-90 transition text-sm sm:text-base">
+                        <i class="fas fa-calendar-check mr-2"></i>Book Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('booking-date').setAttribute('min', today);
+        });
+
+        function openBookingForm() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openServiceBooking(service) {
+            openBookingForm();
+            document.getElementById('booking-service').value = service;
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById('bookingModal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('booking-name').value;
+            const phone = document.getElementById('booking-phone').value;
+            const email = document.getElementById('booking-email').value;
+            const service = document.getElementById('booking-service').value;
+            const location = document.getElementById('booking-location').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            const notes = document.getElementById('booking-notes').value;
+            
+            const subject = `New Appointment Booking - ${service}`;
+            const body = `
+Dear Awesamnails Team,
+
+I would like to book an appointment with the following details:
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service: ${service}
+Location: ${location}
+Preferred Date: ${date}
+Preferred Time: ${time}
+
+Additional Notes: ${notes || 'None'}
+
+Please confirm my appointment at your earliest convenience.
+
+Thank you!
+
+Best regards,
+${name}
+            `.trim();
+            
+            const mailtoLink = `mailto:awsamnails2020@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            closeBookingModal();
+        }
+
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            const subject = 'Newsletter Subscription Request';
+            const body = `
+Dear Awesamnails Team,
+
+I would like to subscribe to your newsletter to receive updates on special offers and beauty tips.
+
+Email: ${email}
+
+Thank you!
+            `.trim();
+            
+            const mailtoLink = `mailto:awsamnails2020@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            document.getElementById('newsletter-email').value = '';
+            alert('Thank you for subscribing! Your email client should open with the subscription request.');
+        }
+
+        function openDirections(location) {
+            if (location === 'Kiambu') {
+                window.open('https://www.google.com/maps/search/Krishna+Center+Kiambu+Kenya', '_blank');
+            } else if (location === 'Nanyuki') {
+                window.open('https://www.google.com/maps/search/Nanyuki+Kenya', '_blank');
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bookingModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeBookingModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
+
+        // Feedback Section Functions
+        let selectedRating = 0;
+
+        function setRating(rating) {
+            selectedRating = rating;
+            document.getElementById('feedback-rating').value = rating;
+            
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('text-gray-300');
+                    star.classList.add('text-gold');
+                } else {
+                    star.classList.remove('text-gold');
+                    star.classList.add('text-gray-300');
+                }
+            });
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('feedback-name').value;
+            const email = document.getElementById('feedback-email').value;
+            const service = document.getElementById('feedback-service').value;
+            const rating = document.getElementById('feedback-rating').value;
+            const message = document.getElementById('feedback-message').value;
+            
+            const subject = `Customer Feedback - ${service} (${rating}/5 stars)`;
+            const body = `
+Dear Awesamnails Team,
+
+I would like to share my feedback about your services:
+
+Customer Details:
+Name: ${name}
+Email: ${email}
+Service Experienced: ${service}
+Rating: ${rating}/5 stars
+
+Feedback:
+${message}
+
+Thank you for the opportunity to share my experience!
+
+Best regards,
+${name}
+            `.trim();
+            
+            const mailtoLink = `mailto:awsamnails2020@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            
+            // Reset form
+            document.querySelector('form[onsubmit="submitFeedback(event)"]').reset();
+            setRating(0);
+            alert('Thank you for your feedback! Your email client should open with your feedback message.');
+        }
+
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                hamburgerIcon.classList.remove('fa-bars');
+                hamburgerIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('fa-times');
+                hamburgerIcon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            
+            mobileMenu.classList.add('hidden');
+            hamburgerIcon.classList.remove('fa-times');
+            hamburgerIcon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

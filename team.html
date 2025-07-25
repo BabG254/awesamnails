@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Team - Awesamnails</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#001F3F',
+                        gold: '#FFD700',
+                        lightpink: '#FFC0CB'
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        lato: ['Lato', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #001F3F 0%, #0a3a6e 50%, #FFD700 100%);
+        }
+        .team-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.3);
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4);
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 15px rgba(34, 197, 94, 0);
+            }
+            100% {
+                box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+        .gold-border {
+            border: 2px solid #FFD700;
+        }
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 192, 203, 0.1) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-navy">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="bg-navy text-gold font-bold text-2xl px-3 py-1 rounded mr-2">A</div>
+                <h1 class="text-2xl font-bold text-navy">Awesamnails</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-navy hover:text-gold font-medium">Home</a>
+                <a href="index.html#services" class="text-navy hover:text-gold font-medium">Services</a>
+                <a href="index.html#about" class="text-navy hover:text-gold font-medium">About</a>
+                <a href="#" class="text-gold font-medium">Team</a>
+                <a href="gallery.html" class="text-navy hover:text-gold font-medium">Gallery</a>
+                <a href="index.html#contact" class="text-navy hover:text-gold font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center">
+                <button onclick="openBookingForm()" class="bg-gold text-navy font-bold px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Book Now</button>
+                <button class="md:hidden ml-4 text-navy">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Meet Our Expert Team</h1>
+            <p class="text-xl text-lightpink mb-8 max-w-2xl mx-auto">Passionate professionals dedicated to bringing out your natural beauty</p>
+            <div class="flex items-center justify-center space-x-2 text-white">
+                <a href="index.html" class="hover:text-gold transition">Home</a>
+                <span class="text-gold"><i class="fas fa-chevron-right"></i></span>
+                <span class="text-gold">Meet Our Team</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Stats -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="stats-card rounded-xl p-6 text-center">
+                    <div class="text-gold text-3xl mb-3"><i class="fas fa-users"></i></div>
+                    <div class="text-navy font-bold text-2xl">12</div>
+                    <div class="text-gray-600 text-sm">Expert Professionals</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center">
+                    <div class="text-gold text-3xl mb-3"><i class="fas fa-award"></i></div>
+                    <div class="text-navy font-bold text-2xl">50+</div>
+                    <div class="text-gray-600 text-sm">Certifications</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center">
+                    <div class="text-gold text-3xl mb-3"><i class="fas fa-clock"></i></div>
+                    <div class="text-navy font-bold text-2xl">8+</div>
+                    <div class="text-gray-600 text-sm">Years Experience</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center">
+                    <div class="text-gold text-3xl mb-3"><i class="fas fa-heart"></i></div>
+                    <div class="text-navy font-bold text-2xl">5K+</div>
+                    <div class="text-gray-600 text-sm">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Professional Team</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Meet the skilled artists and beauty professionals who make your dreams come true</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 - Founder -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Sam Njeri</h3>
+                            <div class="bg-gold text-navy px-2 py-1 rounded text-xs font-bold">FOUNDER</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">CEO & Master Technician</p>
+                        <p class="text-gray-600 mb-4">With over 8 years in the beauty industry, Sam founded Awesamnails with a vision to provide luxury beauty treatments. Specialized in advanced eyelash techniques and nail artistry.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Volume Lashes</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Microblading</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Nail Art</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1594824047534-c4bb21511df5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Grace Wanjiku</h3>
+                            <div class="bg-lightpink text-navy px-2 py-1 rounded text-xs font-bold">SENIOR</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">Senior Lash Technician</p>
+                        <p class="text-gray-600 mb-4">Grace is our go-to expert for classic and volume lash extensions. With 5 years of experience, she's known for her precision and gentle touch that keeps clients coming back.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Classic Lashes</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Mega Volume</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Lash Lifts</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Mary Kamau</h3>
+                            <div class="bg-lightpink text-navy px-2 py-1 rounded text-xs font-bold">EXPERT</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">Nail Art Specialist</p>
+                        <p class="text-gray-600 mb-4">Mary transforms nails into works of art. Her creative designs and attention to detail have made her one of the most requested nail technicians in Kiambu.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Nail Art</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Gel Polish</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">French Tips</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1606814893907-c2e42943c91f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Jennifer Mwangi</h3>
+                            <div class="bg-lightpink text-navy px-2 py-1 rounded text-xs font-bold">CERTIFIED</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">Microblading Artist</p>
+                        <p class="text-gray-600 mb-4">Jennifer specializes in eyebrow microblading and permanent makeup. Her artistic eye and steady hand create natural-looking results that enhance your features.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Microblading</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Ombre Brows</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Lip Blush</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 5 -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Susan Wambui</h3>
+                            <div class="bg-lightpink text-navy px-2 py-1 rounded text-xs font-bold">SENIOR</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">Pedicure Specialist</p>
+                        <p class="text-gray-600 mb-4">Susan provides the most relaxing and thorough pedicure treatments. Her gentle approach and attention to foot health make every session a rejuvenating experience.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Luxury Pedicure</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Foot Care</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Callus Treatment</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 6 -->
+                <div class="team-card rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold">Rachel Nyawira</h3>
+                            <div class="bg-lightpink text-navy px-2 py-1 rounded text-xs font-bold">RISING STAR</div>
+                        </div>
+                        <p class="text-gold font-medium mb-3">Beauty Technician</p>
+                        <p class="text-gray-600 mb-4">Rachel is our newest team member with incredible talent and enthusiasm. She brings fresh techniques and energy to our Nanyuki branch.</p>
+                        <div class="mb-4">
+                            <p class="text-sm text-gray-500 mb-2"><strong>Specialties:</strong></p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Manicure</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Eyeliner</span>
+                                <span class="bg-navy text-gold px-2 py-1 rounded text-xs">Lash Tinting</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-navy hover:text-gold transition"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Awesamnails -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">More About Awesamnails</h2>
+                <p class="text-gray-600 text-lg mb-8">Founded in 2015, Awesamnails has grown from a small beauty studio to one of Kenya's premier nail and eyelash destinations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="feature-card bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-gold text-navy w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Certified Excellence</h3>
+                    <p class="text-gray-600">All our technicians are certified professionals with ongoing training in the latest beauty techniques and safety protocols.</p>
+                </div>
+
+                <div class="feature-card bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-gold text-navy w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Premium Products</h3>
+                    <p class="text-gray-600">We use only the finest, cruelty-free products from trusted international brands to ensure the best results for our clients.</p>
+                </div>
+
+                <div class="feature-card bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="bg-gold text-navy w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Client-Focused</h3>
+                    <p class="text-gray-600">Your satisfaction is our priority. We take time to understand your needs and deliver personalized treatments that exceed expectations.</p>
+                </div>
+            </div>
+
+            <div class="bg-navy rounded-2xl p-8 md:p-12 text-center">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Our Mission</h3>
+                <p class="text-lightpink text-lg mb-6 max-w-3xl mx-auto">
+                    "To empower individuals through beauty by providing exceptional nail and eyelash services that enhance natural beauty, boost confidence, and create lasting relationships with our clients. We are committed to excellence, innovation, and creating a welcoming environment where everyone feels valued and beautiful."
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="openBookingForm()" class="bg-gold text-navy font-bold px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition">
+                        <i class="fas fa-calendar-alt mr-2"></i>Book With Our Team
+                    </button>
+                    <a href="index.html#contact" class="border-2 border-gold text-gold font-bold px-8 py-3 rounded-lg text-lg hover:bg-gold hover:text-navy transition">
+                        <i class="fas fa-phone mr-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Experience Our Expertise?</h2>
+            <p class="text-gray-600 text-xl mb-8 max-w-2xl mx-auto">Book your appointment today and let our skilled team create beautiful results just for you</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="openBookingForm()" class="bg-gold text-navy font-bold px-8 py-3 rounded-lg text-lg hover:bg-opacity-90 transition">
+                    <i class="fas fa-calendar-alt mr-2"></i>Book Appointment
+                </button>
+                <a href="gallery.html" class="gold-border text-gold font-bold px-8 py-3 rounded-lg text-lg hover:bg-gold hover:text-navy transition">
+                    <i class="fas fa-images mr-2"></i>View Our Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254740679946" target="_blank" class="floating-btn bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        function openBookingForm() {
+            // Redirect to home page with booking modal
+            window.location.href = 'index.html#booking';
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
